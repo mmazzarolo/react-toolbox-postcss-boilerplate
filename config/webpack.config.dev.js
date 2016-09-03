@@ -7,7 +7,7 @@ const rootPath = join(__dirname, './..')
 const srcPath = join(rootPath, 'src')
 const buildPath = join(rootPath, 'build')
 const nodeModulesPath = join(rootPath, 'node_modules')
-const reactToolboxPath = join(nodeModulesPath, 'react-toolbox/lib')
+const reactToolboxPath = join(nodeModulesPath, 'react-toolbox')
 
 // Webpack plugins
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
@@ -17,7 +17,7 @@ module.exports = {
   entry: [
     'webpack/hot/dev-server',
     'webpack/hot/only-dev-server',
-    path.join(srcPath, '/app.js')
+    path.join(srcPath, '/index.js')
   ],
   output: {
     path: buildPath,
@@ -45,13 +45,13 @@ module.exports = {
         exclude: [nodeModulesPath],
         loaders: ['react-hot', 'babel']
       }, {
+      //   test: /\.css$/,
+      //   include: [nodeModulesPath],
+      //   exclude: [srcPath],
+      //   loader: 'style-loader!css-loader?modules&importLoaders=1!postcss-loader'
+      // }, {
         test: /\.css$/,
-        include: [nodeModulesPath],
-        exclude: [srcPath],
-        loader: 'style-loader!css-loader?modules&importLoaders=1!postcss-loader'
-      }, {
-        test: /\.css$/,
-        include: [srcPath],
+        include: [srcPath, reactToolboxPath],
         loader: ExtractTextPlugin.extract('style', 'css?sourceMap&modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!postcss')
       }
     ]
@@ -79,7 +79,8 @@ module.exports = {
             }
           }
         }
-      })
+      }),
+      require('precss')({})
     ]
   },
   plugins: [
