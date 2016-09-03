@@ -45,11 +45,6 @@ module.exports = {
         exclude: [nodeModulesPath],
         loaders: ['react-hot', 'babel']
       }, {
-      //   test: /\.css$/,
-      //   include: [nodeModulesPath],
-      //   exclude: [srcPath],
-      //   loader: 'style-loader!css-loader?modules&importLoaders=1!postcss-loader'
-      // }, {
         test: /\.css$/,
         include: [srcPath, reactToolboxPath],
         loader: ExtractTextPlugin.extract('style', 'css?sourceMap&modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!postcss')
