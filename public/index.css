@@ -1,0 +1,12 @@
+html, body {
+  margin:0;
+  height: calc(100% - 4px);
+  min-height: calc(100% - 4px);
+  background-color: #E0E0E0;
+  font-family: 'Roboto', sans-serif;
+}
+
+#root {
+  height: 100%;
+  min-height: 100%;
+}

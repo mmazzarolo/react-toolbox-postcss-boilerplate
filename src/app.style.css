@@ -1,0 +1,38 @@
+.container {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+}
+
+.layout {
+  position: absolute;
+}
+
+.panel {
+  scrollY: false;
+}
+
+.appbar {
+  justify-content: space-between;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+}
+
+.content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+}
+
+.card {
+  max-width: 45rem;
+  max-height: 45rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
